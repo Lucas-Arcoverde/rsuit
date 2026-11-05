@@ -4,6 +4,7 @@
 //
 
 use std::fs;
+use std::io;
 
 fn usage() {
     println!("rSutil - Lucas Arcoverde");
@@ -23,6 +24,11 @@ fn clear() {
     print!("\x1B[2J\x1B[H");
 }
 
+// Create a new directory
+fn mkdir(dir_name: String) -> io::Result<()> {
+    fs::create_dir(dir_name)
+}
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
@@ -32,8 +38,15 @@ fn main() {
     }
 
     let program = &args[1];
+    let pargs   = &args[2];
 
     if program == "clear" {
         clear();
+    }
+    else if program == "mkdir" {
+        // Try to create a new directory, if it fails return an error
+        if let Err(e) = mkdir(pargs.clone()) {
+            eprintln!("mkdir: {}", e);
+        }
     }
 }
