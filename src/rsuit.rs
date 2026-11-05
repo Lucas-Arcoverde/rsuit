@@ -1,5 +1,5 @@
-// rSutil by Lucas Arcoverde
-// rsutil is a collection of many linux/unix commands in a single file written in Rust.
+// rsuit by Lucas Arcoverde
+// rsuit is a collection of many linux/unix commands in a single file written in Rust.
 //
 //
 
@@ -7,7 +7,7 @@ use std::fs;
 use std::io;
 
 fn usage() {
-    println!("rSutil - Lucas Arcoverde");
+    println!("rsuit - Lucas Arcoverde");
     println!("version 26.11.05\n");
 
     println!("Usage:");
